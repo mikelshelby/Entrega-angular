@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
+import { MenuElement } from '@core/interfaces/menu-element.interface';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Hola Mundo';
-
+  title = 'claro';
+menuElements: MenuElement[] = [
+  {title: 'Catálogo', path: 'catalog'},
+  {title: 'Colección', path: 'collection'}
+]
   saludar() {
-    return this.title;
+    console.log('Hola mundo');
   }
 }

@@ -1,1 +1,6 @@
-<cm-header></cm-header>
+<cm-header
+  [menuElements]="menuElements"
+  (rightElementClicked)="saludar()"
+  [(tema)]="title"
+></cm-header>
+<h1>{{ title }}</h1>
