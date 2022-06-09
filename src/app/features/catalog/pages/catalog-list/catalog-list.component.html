@@ -1,0 +1,30 @@
+<p>catalog-list works!</p>
+
+<div class="search-wrapper">
+  <form>
+    <div class="group" id="name">
+      <input type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+      <label>Name</label>
+    </div>
+    <div class="group" id="year">
+      <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+      <label>Number</label>
+    </div>
+    <div class="btn-box">
+      <button class="btn btn-submit" type="submit">submit</button>
+    </div>
+  </form>
+</div>
+
+<div class="items-container">
+  <div class="card">
+    <img src="https://picsum.photos/200" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>John Doe</b></h4>
+      <p>Architect & Engineer</p>
+    </div>
+  </div>
+</div>
+
+{{page}}
+<cm-pagination [(page)]="page" [totalPages]="5"></cm-pagination>
