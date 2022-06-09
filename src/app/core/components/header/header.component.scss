@@ -31,3 +31,8 @@ li {
 li:last-child {
   border-right: none;
 }
+
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}

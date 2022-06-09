@@ -3,5 +3,5 @@
   (rightElementClicked)="saludar()"
   [(tema)]="title"
 ></cm-header>
-<h1>{{ title }}</h1>
+<router-outlet></router-outlet>
 <cm-loader *ngIf="loading"></cm-loader>
