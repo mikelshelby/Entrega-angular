@@ -25,4 +25,9 @@ export class CatalogListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  search(search: { [term: string]: any }) {
+
+    console.warn('Búsqueda', search);
+  }
 }

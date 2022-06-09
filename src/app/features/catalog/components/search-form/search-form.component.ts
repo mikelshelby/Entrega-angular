@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -14,11 +14,21 @@ export class SearchFormComponent implements OnInit {
       Validators.max(2022),
     ]),
   });
+
+  get name() { return this.searchForm.get('name'); }
+  get year() { return this.searchForm.get('year'); }
+
+  searchChange: EventEmitter<{ [term: string]: any }> = new EventEmitter<{
+    [term: string]: any;
+  }>();
   constructor() {}
 
   ngOnInit(): void {}
 
   submit() {
-    console.log(this.searchForm.controls);
+    if (this.searchForm.valid) {
+      console.log(this.searchForm)
+      this.searchChange.emit(this.searchForm.value);
+    }
   }
 }
