@@ -3,11 +3,13 @@
 <div class="search-wrapper">
   <form>
     <div class="group" id="name">
-      <input type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+      <input type="text" required="required" /><span class="highlight"></span
+      ><span class="bar"></span>
       <label>Name</label>
     </div>
     <div class="group" id="year">
-      <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+      <input type="number" required="required" /><span class="highlight"></span
+      ><span class="bar"></span>
       <label>Number</label>
     </div>
     <div class="btn-box">
@@ -17,15 +19,12 @@
 </div>
 
 <div class="items-container">
-  <div class="card">
-    <img src="https://picsum.photos/200" alt="Avatar" style="width:100%">
-    <div class="container">
-      <h4><b>John Doe</b></h4>
-      <p>Architect & Engineer</p>
-    </div>
-  </div>
+  <cm-catalog-item
+    *ngFor="let item of comics"
+    [comic]="item"
+  ></cm-catalog-item>
 </div>
 
-{{page}}
+{{ page }}
 
 <cm-pagination [(page)]="page" [totalPages]="5"></cm-pagination>
