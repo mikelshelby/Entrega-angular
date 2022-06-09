@@ -6,18 +6,22 @@ import { CatalogComponent } from './catalog.component';
 import { CatalogListComponent } from './pages/catalog-list/catalog-list.component';
 import { SharedModule } from '@shared/shared.module';
 import { CatalogItemComponent } from './components/catalog-item/catalog-item.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     CatalogComponent,
     CatalogListComponent,
-    CatalogItemComponent
+    CatalogItemComponent,
+    SearchFormComponent
   ],
   imports: [
     CommonModule,
     CatalogRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class CatalogModule { }

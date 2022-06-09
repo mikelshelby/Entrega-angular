@@ -14,6 +14,12 @@ export class CatalogListComponent implements OnInit {
         'Ad exercitation non esse enim ea officia quis minim do do amet exercitation officia velit.',
       images: [{ path: 'https://picsum.photos/200', extension: '' }],
     }),
+    new Comic({
+      title: 'Dinastía de M 2',
+      description:
+        'Ad exercitation non esse enim ea officia quis minim do do amet exercitation officia velit.',
+      images: [{ path: 'https://picsum.photos/200', extension: '' }],
+    }),
   ];
   page: number = 1;
   constructor() {}

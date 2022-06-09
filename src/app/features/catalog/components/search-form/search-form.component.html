@@ -1,0 +1,19 @@
+<div class="search-wrapper">
+  <form [formGroup]="searchForm" (ngSubmit)="submit()">
+    <div class="group" id="name">
+      <input type="text" formControlName="name" /><span class="highlight"></span
+      ><span class="bar"></span>
+      <label>Buscar por nombre</label>
+    </div>
+    <div class="group" id="year">
+      <input type="number" formControlName="year" /><span
+        class="highlight"
+      ></span
+      ><span class="bar"></span>
+      <label>Año</label>
+    </div>
+    <div class="btn-box">
+      <button class="btn btn-submit" type="submit">Buscar</button>
+    </div>
+  </form>
+</div>

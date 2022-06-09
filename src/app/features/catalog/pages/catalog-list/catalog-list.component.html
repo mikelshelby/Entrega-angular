@@ -1,23 +1,4 @@
-<p>catalog-list works!</p>
-
-<div class="search-wrapper">
-  <form>
-    <div class="group" id="name">
-      <input type="text" required="required" /><span class="highlight"></span
-      ><span class="bar"></span>
-      <label>Name</label>
-    </div>
-    <div class="group" id="year">
-      <input type="number" required="required" /><span class="highlight"></span
-      ><span class="bar"></span>
-      <label>Number</label>
-    </div>
-    <div class="btn-box">
-      <button class="btn btn-submit" type="submit">submit</button>
-    </div>
-  </form>
-</div>
-
+<cm-search-form></cm-search-form>
 <div class="items-container">
   <cm-catalog-item
     *ngFor="let item of comics"
