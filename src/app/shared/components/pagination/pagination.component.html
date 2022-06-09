@@ -1,10 +1,10 @@
 <div class="pagination">
-  <a href="#">&laquo;</a>
-  <a (click)="clickPage(p)" *ngFor="let p of numbers">{{p}}</a>
-  <!-- <a (click)="clickPage(2)" class="active">2</a>
-  <a (click)="clickPage(3)">3</a>
-  <a (click)="clickPage(4)">4</a>
-  <a (click)="clickPage(5)">5</a>
-  <a (click)="clickPage(6)">6</a> -->
-  <a>&raquo;</a>
+  <a (click)="clickPage(page-1)">&laquo;</a>
+  <a
+    (click)="clickPage(p)"
+    *ngFor="let p of numbers"
+    [ngClass]="{ active: p === page }"
+    >{{ p }}</a
+  >
+  <a (click)="clickPage(page+1)">&raquo;</a>
 </div>

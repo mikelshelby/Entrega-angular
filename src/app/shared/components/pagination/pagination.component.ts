@@ -3,10 +3,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'cm-pagination',
   templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss']
+  styleUrls: ['./pagination.component.scss'],
 })
 export class PaginationComponent implements OnInit {
-
   @Input()
   totalPages: number = 1;
 
@@ -17,15 +16,18 @@ export class PaginationComponent implements OnInit {
 
   numbers: number[] = [1];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.numbers = Array(this.totalPages).fill(0).map((_,i)=> i+1);
+    this.numbers = Array(this.totalPages)
+      .fill(0)
+      .map((_, i) => i + 1);
   }
 
   clickPage(page: number) {
-    this.page = page;
-    this.pageChange.emit(this.page);
+    if (page > 0 && page <= this.totalPages) {
+      this.page = page;
+      this.pageChange.emit(this.page);
+    }
   }
-
 }
