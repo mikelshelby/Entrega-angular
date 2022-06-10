@@ -39,10 +39,10 @@ export class ComicStateService implements StateService<Comic> {
   setSelected(data: Comic): void {
     this.selectedElement$.next(data);
   }
-  getPagination$?(): Observable<Pagination> {
+  getPagination$(): Observable<Pagination> {
     return this.pagination$.asObservable();
   }
-  setPagination?(data: Pagination): void {
+  setPagination(data: Pagination): void {
     this.pagination$.next(data);
   }
 }

@@ -21,14 +21,7 @@ export class CatalogListComponent implements OnInit {
   search(search: { [term: string]: any }) {
     console.warn('Búsqueda', search);
     this.actualFilters = search;
-    this.catalogService.searchComic(search).subscribe((resp) => {
-      this.comics = resp.results;
-      this.page = resp.offset / resp.limit + 1;
-      this.totalPages = Math.ceil(resp.total / resp.limit);
-      this.limit = resp.limit;
-      console.log(this.page);
-      console.log(this.totalPages);
-    });
+
   }
 
   changePage() {
