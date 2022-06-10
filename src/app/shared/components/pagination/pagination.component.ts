@@ -6,8 +6,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./pagination.component.scss'],
 })
 export class PaginationComponent implements OnInit {
+  private _totalPages: number = 1;
   @Input()
-  totalPages: number = 1;
+  set totalPages(value: number) {
+    this._totalPages = value;
+    this.generateNumbersPages();
+  }
+  get totalPages(): number {
+    return this._totalPages;
+  }
 
   @Input()
   page: number = 1;
@@ -18,7 +25,9 @@ export class PaginationComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  private generateNumbersPages() {
     this.numbers = Array(this.totalPages)
       .fill(0)
       .map((_, i) => i + 1);
