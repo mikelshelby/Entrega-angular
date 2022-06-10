@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  api_server: 'http://gateway.marvel.com'
+  api_server: 'http://gateway.marvel.com',
+  public_key: '',
+  hash: '',
+  ts: '123456789'
 };
 
 /*
