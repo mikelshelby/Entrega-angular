@@ -9,7 +9,7 @@ export class Creator implements Model {
       return this._name;
   }
   set name(value: string) {
-      this.name = value;
+      this._name = value;
   }
 
   get role(): string {
