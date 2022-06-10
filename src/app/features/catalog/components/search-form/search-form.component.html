@@ -1,33 +1,33 @@
 <div class="search-wrapper">
   <form [formGroup]="searchForm" (ngSubmit)="submit()">
     <div class="group" id="name">
-      <input type="text" formControlName="name" /><span class="highlight"></span
+      <input type="text" formControlName="titleStartsWith" /><span class="highlight"></span
       ><span class="bar"></span>
-      <label>Buscar por nombre</label>
+      <label>Buscar por título</label>
       <div
-        *ngIf="name && name.invalid && (name.dirty || name.touched)"
+        *ngIf="titleStartsWith && titleStartsWith.invalid && (titleStartsWith.dirty || titleStartsWith.touched)"
         class="alert alert-danger"
       >
-        <div *ngIf="name.errors?.['minlength']">
-          Has introducido {{name.errors?.['minlength'].actualLength}} y el mínimo son
-          {{name.errors?.['minlength'].requiredLength}}
+        <div *ngIf="titleStartsWith.errors?.['minlength']">
+          Has introducido {{titleStartsWith.errors?.['minlength'].actualLength}} y el mínimo son
+          {{titleStartsWith.errors?.['minlength'].requiredLength}}
         </div>
       </div>
     </div>
 
     <div class="group" id="year">
-      <input type="number" formControlName="year" /><span
+      <input type="number" formControlName="startYear" /><span
         class="highlight"
       ></span
       ><span class="bar"></span>
       <label>Año</label>
       <div
-        *ngIf="year && year.invalid && (year.dirty || year.touched)"
+        *ngIf="startYear && startYear.invalid && (startYear.dirty || startYear.touched)"
         class="alert alert-danger"
       >
-        <div *ngIf="year.errors?.['min']">
-          Has introducido {{year.errors?.['min'].actualLength}} y el mínimo son
-          {{year.errors?.['min'].requiredLength}}
+        <div *ngIf="startYear.errors?.['min']">
+          Has introducido {{startYear.errors?.['min'].actualLength}} y el mínimo son
+          {{startYear.errors?.['min'].requiredLength}}
         </div>
       </div>
     </div>

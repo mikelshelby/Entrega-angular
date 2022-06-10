@@ -8,20 +8,7 @@ import { CatalogService } from '../../services/catalog.service';
   styleUrls: ['./catalog-list.component.scss'],
 })
 export class CatalogListComponent implements OnInit {
-  comics: Comic[] = [
-    new Comic({
-      title: 'Dinastía de M',
-      description:
-        'Ad exercitation non esse enim ea officia quis minim do do amet exercitation officia velit.',
-      images: [{ path: 'https://picsum.photos/200', extension: '' }],
-    }),
-    new Comic({
-      title: 'Dinastía de M 2',
-      description:
-        'Ad exercitation non esse enim ea officia quis minim do do amet exercitation officia velit.',
-      images: [{ path: 'https://picsum.photos/200', extension: '' }],
-    }),
-  ];
+  comics: Comic[] = [];
   page: number = 1;
   constructor(private catalogService: CatalogService) {}
 
@@ -29,7 +16,7 @@ export class CatalogListComponent implements OnInit {
 
   search(search: { [term: string]: any }) {
     console.warn('Búsqueda', search);
-    this.catalogService.searchComic(search).subscribe(resp => {
+    this.catalogService.searchComic(search).subscribe((resp) => {
       this.comics = resp;
     });
   }

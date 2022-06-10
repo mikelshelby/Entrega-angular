@@ -8,18 +8,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SearchFormComponent implements OnInit {
   searchForm: FormGroup = new FormGroup({
-    name: new FormControl<string | null>(null, [Validators.minLength(4)]),
-    year: new FormControl<number | null>(null, [
+    titleStartsWith: new FormControl<string | null>(null, [Validators.minLength(4)]),
+    startYear: new FormControl<number | null>(null, [
       Validators.min(1900),
       Validators.max(2022),
     ]),
   });
 
-  get name() {
-    return this.searchForm.get('name');
+  get titleStartsWith() {
+    return this.searchForm.get('titleStartsWith');
   }
-  get year() {
-    return this.searchForm.get('year');
+  get startYear() {
+    return this.searchForm.get('startYear');
   }
 
   @Output()
