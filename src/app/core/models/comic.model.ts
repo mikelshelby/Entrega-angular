@@ -69,12 +69,14 @@ export class Comic implements Model {
         (d: any) => d.type === 'onsaleDate'
       );
       if (filterDates && filterDates.length > 0) {
-        this.onsaleDate = new Date(filterDates.date);
+        this.onsaleDate = new Date(filterDates[0].date);
       }
     }
 
     if (input.creators && input.creators.items) {
-      this.creators = (input.creators.items as any[]).map((c: any) => new Creator(c));
+      this.creators = (input.creators.items as any[]).map(
+        (c: any) => new Creator(c)
+      );
     }
   }
   serialize() {
@@ -86,6 +88,7 @@ export class Comic implements Model {
       pageCount: this.pageCount,
       images: this.images,
       creators: this.creators.map((c) => c.serialize()),
+      onsaleDate: this.onsaleDate.toISOString(),
     };
   }
 }
