@@ -14,18 +14,28 @@ export class CatalogListComponent implements OnInit {
   actualFilters: { [term: string]: any } = {};
   limit: number = 20;
 
-  constructor(private catalogService: CatalogService) {}
+  constructor(public catalogService: CatalogService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.catalogService.comics$.subscribe((comics) => {
+      if (comics) {
+        this.comics = comics;
+      }
+    });
+    this.catalogService.pagination$.subscribe((pagination) => {
+      this.page = pagination.page;
+      this.totalPages = pagination.totalPages;
+      this.limit = pagination.limit;
+    });
+  }
 
   search(search: { [term: string]: any }) {
     console.warn('Búsqueda', search);
     this.actualFilters = search;
-
+    this.catalogService.searchComic(this.actualFilters);
   }
 
   changePage() {
-
     this.actualFilters = {
       ...this.actualFilters,
       offset: (this.page - 1) * this.limit, // 20 es el limit
