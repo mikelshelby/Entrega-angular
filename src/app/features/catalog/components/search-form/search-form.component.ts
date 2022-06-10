@@ -32,7 +32,8 @@ export class SearchFormComponent implements OnInit {
 
   submit() {
     if (this.searchForm.valid) {
-      this.searchChange.emit(this.searchForm.value);
+      const filteredFilters = Object.fromEntries(Object.entries(this.searchForm.value).filter(([_, v]) => v != null));
+      this.searchChange.emit(filteredFilters);
     }
   }
 }

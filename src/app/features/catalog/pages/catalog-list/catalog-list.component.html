@@ -5,4 +5,4 @@
 
 <br />
 
-<cm-pagination [(page)]="page" [totalPages]="5"></cm-pagination>
+<cm-pagination [(page)]="page" [totalPages]="totalPages" (pageChange)="changePage()" *ngIf="totalPages > 1"></cm-pagination>
