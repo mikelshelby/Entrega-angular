@@ -26,8 +26,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             controlatedError.message = 'No autenticado';
             controlatedError.title = 'Unauthorized';
             break;
-
+          case 403:
+            controlatedError.message = 'No autorizado';
+            controlatedError.title = 'Forbbiden';
+            break;
           default:
+            controlatedError.title = 'Error inesperado';
             break;
         }
 

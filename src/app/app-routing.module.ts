@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundPageComponent } from '@core/components/not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {
     path: 'catalog',
     loadChildren: () =>
-      import('./features/catalog/catalog.module').then(
-        (m) => m.CatalogModule
-      ),
+      import('./features/catalog/catalog.module').then((m) => m.CatalogModule),
   },
   {
     path: 'collection',
@@ -16,6 +15,7 @@ const routes: Routes = [
         (m) => m.CollectionModule
       ),
   },
+  { path: '**', component: NotFoundPageComponent },
 ];
 
 @NgModule({
