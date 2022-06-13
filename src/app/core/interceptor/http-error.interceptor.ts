@@ -24,14 +24,22 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         switch (error.status) {
           case 401:
             controlatedError.message = 'No autenticado';
-            controlatedError.title = 'Unauthorized';
             break;
+
+          case 404:
+            controlatedError.message = 'No encontrado';
+            break;
+
           case 403:
-            controlatedError.message = 'No autorizado';
-            controlatedError.title = 'Forbbiden';
+            controlatedError.message = 'No posee permisos';
             break;
+
+          case 502:
+            controlatedError.message = 'Gateway no vale';
+            break;
+
           default:
-            controlatedError.title = 'Error inesperado';
+            controlatedError.message = 'Error desconocido';
             break;
         }
 
