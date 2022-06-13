@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './catalog.component';
+import { CatalogComicComponent } from './pages/catalog-comic/catalog-comic.component';
 import { CatalogListComponent } from './pages/catalog-list/catalog-list.component';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
     children: [
       { path: 'list', component: CatalogListComponent },
       { path: '', redirectTo: 'list', pathMatch: 'full' },
+      { path: 'detail' , component: CatalogComicComponent}
     ],
   },
 ];

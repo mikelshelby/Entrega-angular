@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pagination } from '@core/interfaces/pagination.interface';
 import { Comic } from '@core/models/comic.model';
 import { ComicApiService } from '@core/services/comic-api.service';
@@ -11,7 +12,8 @@ import { Observable } from 'rxjs';
 export class CatalogService {
   constructor(
     private comicApi: ComicApiService,
-    private comicState: ComicStateService
+    private comicState: ComicStateService,
+    private router: Router,
   ) {}
 
   get comics$(): Observable<Comic[] | null> {
@@ -26,6 +28,8 @@ export class CatalogService {
     return this.comicState.isLoading$();
   }
 
+
+
   searchComic(filters?: { [term: string]: any }) {
     this.comicState.setLoading(true);
     this.comicApi.list(filters).subscribe((resp) => {
@@ -37,5 +41,13 @@ export class CatalogService {
       });
       this.comicState.setLoading(false);
     });
+  }
+
+  get selected$():Observable<Comic | null>{
+    return this.comicState.getSelected$();
+  }
+  getComic(comic:Comic){
+    this.comicState.setSelected(comic);
+    this.router.navigate(['/catalog/detail']);
   }
 }

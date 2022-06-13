@@ -42,4 +42,8 @@ export class CatalogListComponent implements OnInit {
     };
     this.search(this.actualFilters);
   }
+
+  viewComic(comic:Comic){
+    this.catalogService.getComic(comic);
+  }
 }
