@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CreatorsPipe } from './pipes/creators.pipe';
+import { CursorChangeDirective } from './directives/cursor-change.directive';
 
 
 
@@ -10,7 +11,8 @@ import { CreatorsPipe } from './pipes/creators.pipe';
   declarations: [
     LoaderComponent,
     PaginationComponent,
-    CreatorsPipe
+    CreatorsPipe,
+    CursorChangeDirective
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { CreatorsPipe } from './pipes/creators.pipe';
   exports: [
     LoaderComponent,
     PaginationComponent,
-    CreatorsPipe
+    CreatorsPipe,
+    CursorChangeDirective
   ]
 })
 export class SharedModule { }
