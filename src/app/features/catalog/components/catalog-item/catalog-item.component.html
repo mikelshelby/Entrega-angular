@@ -1,6 +1,8 @@
 <div class="card">
   <img
-    [src]="comic.images[0].path + '/portrait_fantastic.' + comic.images[0].extension"
+    [src]="
+      comic.images[0].path + '/portrait_fantastic.' + comic.images[0].extension
+    "
     alt="Portada"
     style="width: 100%"
     *ngIf="
@@ -10,8 +12,12 @@
   />
   <div class="container">
     <h4>
-      <b>{{ comic.title }}</b>
+      <b>{{ comic.title | uppercase }}</b>
     </h4>
+    <h6>{{ comic.onsaleDate | date: "longDate" }}</h6>
+    <div>
+      {{ comic.creators | creators }}
+    </div>
     <p>{{ comic.description }}</p>
   </div>
 </div>
